@@ -5,4 +5,6 @@
         ./graphical.nix
         ./power.nix
     ];
+
+    hardware.cpu.intel.updateMicrocode = true;
 }

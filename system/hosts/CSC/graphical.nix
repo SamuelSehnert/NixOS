@@ -46,7 +46,6 @@
         gnome-maps
         gnome-weather
         gnome-system-monitor
-        gnome-disk-utility
         file-roller
         gnome-logs
         gnome-font-viewer

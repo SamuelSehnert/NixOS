@@ -31,6 +31,11 @@
                     description = "My main Thinkpad t480 laptop";
                     usernames = [ "squid" ];
                     swapSize = 8;
+                    hibernate = {
+                        enable = true;
+                        offset = 8724480;
+                    };
+                    enableHibernate = true;
                     hardware = [ nixos-hardware.nixosModules.lenovo-thinkpad-t480 ];
                 }
                 {
@@ -38,6 +43,7 @@
                     description = "Dell Optiplex server and backup store";
                     usernames = [ "octopus" ];
                     swapSize = 8;
+                    enableHibernate = false;
                     hardware = with nixos-hardware.nixosModules; [
                         common-cpu-intel
                         common-pc-hdd
@@ -68,7 +74,6 @@
                             };
                         }
                         ./system/hosts/${machine.hostname}
-                        ./hardware-configuration.nix
                     ] ++ machine.hardware;
                 };
             }) machines
