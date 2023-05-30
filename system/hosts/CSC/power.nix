@@ -7,5 +7,4 @@
             lidSwitch = "hybrid-sleep";
         };
     };
-    powerManagement.cpuFreqGovernor = "powersave";
 }

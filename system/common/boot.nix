@@ -12,16 +12,12 @@
                 allowDiscards = true;
             };
             # nixos.wiki/wiki/Full_Disk_Encryption
-            availableKernelModules = [ "aesni_intel" "cryptd" "xhci_pci" "ahci" "usb_storage" "sd_mod" ];
-            kernelModules = [ "dm-snapshot" ];
+            availableKernelModules = [ "aesni_intel" "cryptd" ];
         };
         kernelPackages = pkgs.linuxPackages_latest;
-        kernelModules = [ "kvm-intel" ];
 
         # filefrag -v /swapfile | awk '{if($1=="0":"){print $4}}'
-        kernelParams = if extras.machine.hibernate.enable then 
-            [ "resume=/swapfile" "resume_offset=${toString extras.machine.hibernate.offset}" ] else
-            [];
+        kernelParams = [ "resume=/swapfile" "resume_offset=$8724480" ];
     };
 
     fileSystems = {
