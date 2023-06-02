@@ -5,7 +5,6 @@
     ./fonts.nix
     ./security.nix
     ./users.nix
-    ./boot.nix
   ];
 
   nix = {

@@ -35,19 +35,12 @@
               hostname = "CSC";
               description = "My main Thinkpad t480 laptop";
               usernames = [ "squid" ];
-              swapSize = 8;
-              hibernate = {
-                enable = true;
-                # filefrag -v /swapfile | awk '{if($1=="0":"){print $4}}'
-                resume-offset = 8724480;
-              };
               hardware = [ nixos-hardware.nixosModules.lenovo-thinkpad-t480 ];
             }
             {
               hostname = "galaxy";
               description = "Dell Optiplex server and backup store";
               usernames = [ "octopus" ];
-              swapSize = 8;
               hardware = with nixos-hardware.nixosModules; [
                 common-cpu-intel
                 common-pc-hdd
@@ -83,7 +76,6 @@
                     };
                   }
                   ./system/hosts/${machine.hostname}
-                  ./hardware-configuration.nix
                 ] ++ machine.hardware;
               };
             })
