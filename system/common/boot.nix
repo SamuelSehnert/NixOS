@@ -17,9 +17,10 @@
     kernelPackages = pkgs.linuxPackages_latest;
 
     # filefrag -v /swapfile | awk '{if($1=="0":"){print $4}}'
-    kernelParams = if extras.machine.hibernate.enable then
-      [ "resume=/swapfile" "resume_offset=${toString extras.machine.hibernate.resume-offset}" ]
-      else [];
+    kernelParams =
+      if extras.machine.hibernate.enable then
+        [ "resume=/swapfile" "resume_offset=${toString extras.machine.hibernate.resume-offset}" ]
+      else [ ];
   };
 
   fileSystems = {
