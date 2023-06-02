@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }@extras: {
-    environment = {
-        sessionVariables = {};
-        systemPackages = with pkgs; [
-            git
-            vim
-        ];
-    };
+  environment = {
+    sessionVariables = { };
+    systemPackages = with pkgs; [
+      git
+      vim
+    ];
+  };
 }

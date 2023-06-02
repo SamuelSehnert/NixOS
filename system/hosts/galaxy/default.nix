@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
-    imports = [
-        ../../common
-        ./openssh.nix
-    ];
+  imports = [
+    ../../common
+    ./openssh.nix
+  ];
 }
