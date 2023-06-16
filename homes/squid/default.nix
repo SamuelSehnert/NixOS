@@ -7,8 +7,7 @@
     ./foot.nix
     ./sway.nix
   ];
-  packages = with pkgs; [
-    preconfigured
+  userPackages = with pkgs; [
     firefox
   ];
 }

@@ -1,15 +1,23 @@
-{ config, pkgs, username, importList, packages, ... }:
+{ config
+, pkgs
+, username
+, importList
+, userPackages
+, ...
+}:
 let
   homeDirectory = "/home/${username}";
+  commonPackages = (import ./pkgs.nix) { inherit config pkgs; };
 in
 {
   home = {
-    inherit username homeDirectory packages;
+    inherit username homeDirectory;
     stateVersion = "22.11";
     sessionVariables = {
       SHELL = "${pkgs.fish}/bin/fish";
       EDITOR = "${pkgs.preconfigured}/bin/nvim";
     };
+    packages = userPackages ++ commonPackages;
   };
 
   xdg = {

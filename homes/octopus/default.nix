@@ -5,9 +5,7 @@
   username = config.username;
   importList = [
   ];
-  packages = with pkgs; [
-    preconfigured
-
+  userPackages = with pkgs; [
     calibre
   ];
 }
