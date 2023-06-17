@@ -8,13 +8,24 @@
       url = "github:/nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-secrets = {
+      url = "git+ssh://git@github.com/SamuelSehnert/NixOS-Secrets";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     neovim-flake = {
       url = "github:SamuelSehnert/neovim-flake";
     };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@inputs:
+  outputs =
+    { self
+    , nixpkgs
+    , nixos-hardware
+    , home-manager
+    , nixos-secrets
+    , ...
+    } @inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -30,6 +41,7 @@
 
       nixosConfigurations =
         let
+          secrets = nixos-secrets.nixosModules.default;
           machines = [
             {
               hostname = "CSC";
@@ -54,7 +66,9 @@
               name = machine.hostname;
               value = nixpkgs.lib.nixosSystem {
                 inherit system pkgs;
-                specialArgs = { inherit inputs machine; };
+                specialArgs = {
+                  inherit inputs machine secrets;
+                };
                 modules = [
                   home-manager.nixosModules.home-manager
                   {
@@ -68,6 +82,7 @@
                             value = import ./homes/${name} {
                               inherit pkgs;
                               config = {
+                                inherit nixos-secrets;
                                 username = name;
                               };
                             };

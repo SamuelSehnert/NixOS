@@ -1,17 +1,18 @@
 { config, lib, pkgs, ... }@extras: {
-  users.mutableUsers = true;
+  users.mutableUsers = false;
   users.users =
     let
-      default = {
+      default = name: {
         isNormalUser = true;
         extraGroups = [ "wheel" ];
+        hashedPassword = extras.secrets.users.${name}.hashedPassword;
       };
     in
     builtins.listToAttrs (
       builtins.map
         (name: {
           inherit name;
-          value = default;
+          value = default name;
         })
         extras.machine.usernames
     );

@@ -292,6 +292,26 @@
         "type": "github"
       }
     },
+    "nixos-secrets": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1686970938,
+        "narHash": "sha256-3RSPFlqawKPGtJQ60XZop7Jqzs8YPokEk9XvAXKQeh4=",
+        "ref": "refs/heads/main",
+        "rev": "c0555f0653dbfc9fdb1814bf63eaaac38171dc8a",
+        "revCount": 3,
+        "type": "git",
+        "url": "ssh://git@github.com/SamuelSehnert/NixOS-Secrets"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/SamuelSehnert/NixOS-Secrets"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1686089707,
@@ -520,6 +540,7 @@
         "home-manager": "home-manager",
         "neovim-flake": "neovim-flake",
         "nixos-hardware": "nixos-hardware",
+        "nixos-secrets": "nixos-secrets",
         "nixpkgs": "nixpkgs_2"
       }
     },
