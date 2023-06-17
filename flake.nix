@@ -15,6 +15,11 @@
 
     neovim-flake = {
       url = "github:SamuelSehnert/neovim-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    emacs-flake = {
+      url = "github:SamuelSehnert/emacs-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -33,6 +38,7 @@
         config.allowUnfree = true;
         overlays = [
           inputs.neovim-flake.overlays.default
+          inputs.emacs-flake.overlays.default
         ];
       };
     in

@@ -23,6 +23,7 @@ in
 (with pkgs; [
   # Misc
   preconfigured
+  custom-emacs
   tldr
   file
 
