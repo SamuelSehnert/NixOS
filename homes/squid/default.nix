@@ -9,6 +9,6 @@
   ];
   userPackages = with pkgs; [
     firefox
-    webex
+    calibre
   ];
 }

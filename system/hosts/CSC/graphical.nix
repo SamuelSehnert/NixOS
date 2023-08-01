@@ -15,6 +15,9 @@
     desktopManager.gnome.enable = true;
   };
   documentation.doc.enable = false;
+  environment.systemPackages = with pkgs.gnome; [
+    gnome-tweaks
+  ];
   environment.gnome.excludePackages = (with pkgs; [
     gnome-photos
     gnome-tour

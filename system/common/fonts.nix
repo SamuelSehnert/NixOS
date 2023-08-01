@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }: {
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     (nerdfonts.override {
       fonts = [
         "Hack"

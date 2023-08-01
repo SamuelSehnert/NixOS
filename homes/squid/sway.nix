@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
   wayland.windowManager.sway = {
-    enable = true;
+    enable = false;
 
     config.bars = [{
       # statusCommand = "${config.programs.waybar.package}/bin/waybar";
@@ -9,7 +9,7 @@
   };
 
   programs.waybar = {
-    enable = true;
+    enable = false;
     systemd.enable = true;
     settings = [{
       layer = "top";
