@@ -10,5 +10,8 @@
   userPackages = with pkgs; [
     firefox
     calibre
+
+    # Programming/Tinker
+    android-tools
   ];
 }
